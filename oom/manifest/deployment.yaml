@@ -1,15 +1,22 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: memory-demo
+  name: oom-demo
 spec:
-  containers:
-  - name: memory-demo-ctr
-    image: ghcr.io/eddiewebb:happy # A small image with the 'stress' tool
-    resources:
-      requests:
-        memory: "50Mi" 
-      limits:
-        memory: "100Mi" 
-    command: ["stress"]
-    args: ["--vm", "1", "--vm-bytes", "110M", "--vm-hang", "1"] 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oom-demo
+  template:
+    metadata:
+      labels:
+        app: oom-demo
+    spec:
+      containers:
+      - name: oom-demo
+        image: ghcr.io/eddiewebb:happy
+        resources:
+          requests:
+            memory: "50Mi" 
+          limits:
+            memory: "100Mi" 
