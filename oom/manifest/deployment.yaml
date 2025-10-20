@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: memory-demo-ctr
-    image: polinux/stress # A small image with the 'stress' tool
+    image: ghcr.io/eddiewebb:happy # A small image with the 'stress' tool
     resources:
       requests:
         memory: "50Mi" 
