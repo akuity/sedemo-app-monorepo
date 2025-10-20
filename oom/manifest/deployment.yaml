@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: oom-demo
-        image: map[digest:sha256:06f5cae35ab335d212e6c9ce38e7d0a67a9312c91519707ec23742a3ebb478a6 repoURL:ghcr.io/eddiewebb/oom tag:happy]
+        image: happy
         resources:
           requests:
             memory: "50Mi" 
