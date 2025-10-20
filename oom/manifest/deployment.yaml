@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oom-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oom-demo
+  template:
+    metadata:
+      labels:
+        app: oom-demo
+    spec:
+      containers:
+      - name: oom-demo
+        image: map[digest:sha256:06f5cae35ab335d212e6c9ce38e7d0a67a9312c91519707ec23742a3ebb478a6 repoURL:ghcr.io/eddiewebb/oom tag:happy]
+        resources:
+          requests:
+            memory: "50Mi" 
+          limits:
+            memory: "100Mi" 
