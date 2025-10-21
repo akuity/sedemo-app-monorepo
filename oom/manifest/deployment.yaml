@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: oom-demo
-        image: ghcr.io/eddiewebb/oom:happy
+        image: ghcr.io/eddiewebb/oom:oom
         resources:
           requests:
             memory: "50Mi" 
