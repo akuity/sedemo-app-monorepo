@@ -5,15 +5,12 @@ image:
   # If using default workflow, this will be set to ghcr.io/<github_org>/<repo_name>
   repository: ghcr.io/akuity/guestbook
   # Default use of this ghcr publishing workflow will use incrmental build number as tag
-  selectionStrategy: Lexical
-  # if useing digest stragey, uncomment next line and comment tagRegex line
-  #tag: latest
-  tagRegex: '^\d*$'
+  selectionStrategy: SemVer
   containerPort: 80
   memoryLimit: 64Mi
   cpuLimit: 1m
 ingress:
-  custom_prefix: oom
+  custom_prefix: guestbook
 
 rollouts:
   enabled: true
