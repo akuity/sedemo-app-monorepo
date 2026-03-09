@@ -5,9 +5,8 @@ image:
   # If using default workflow, this will be set to ghcr.io/<github_org>/<repo_name>
   repository: ghcr.io/akuity/guestbook
   # Default use of this ghcr publishing workflow will use incrmental build number as tag
-  imageSelectionStrategy: Lexical
-  allowTagsRegexes:
-  - ^v.*$
+  selectionStrategy: Lexical
+  tagRegex: ^v.*$
   containerPort: 80
   memoryLimit: 64Mi
   cpuLimit: 1m
