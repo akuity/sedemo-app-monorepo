@@ -1,4 +1,4 @@
-
-lab-guestbook: v0.0.2
-lab-frontend: v0.0.2
-lab-backend: v0.0.2
+images:
+  lab-guestbook: v0.0.2
+  lab-frontend: v0.0.2
+  lab-backend: v0.0.2
