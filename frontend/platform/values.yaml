@@ -1,0 +1,20 @@
+project:
+  group: sedemo-team-eddie
+
+image:
+  # If using default workflow, this will be set to ghcr.io/<github_org>/<repo_name>
+  repository: ghcr.io/akuity/guestbook
+  # Default use of this ghcr publishing workflow will use incrmental build number as tag
+  selectionStrategy: Lexical
+  tagRegex: ^v.*$
+  containerPort: 80
+  memoryLimit: 64Mi
+  cpuLimit: 1m
+ingress:
+  custom_prefix: frontend
+
+rollouts:
+  enabled: true
+
+environments:
+  staging: true
