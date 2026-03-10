@@ -38,10 +38,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - "dev.guestbook.akpdemoapps.link"
+    - "staging.guestbook.akpdemoapps.link"
     secretName: tls-secret
   rules:
-  - host: "dev.guestbook.akpdemoapps.link"
+  - host: "staging.guestbook.akpdemoapps.link"
     http:
       paths:
       - pathType: Prefix
@@ -70,9 +70,9 @@ spec:
       prometheus:
         address: http://prometheus-server.prometheus.svc.cluster.local
         query: |
-          ( sum(rate(nginx_ingress_controller_requests{namespace="lab-guestbook-dev",status="200",canary="lab-guestbook-dev-svc-canary-80"}[30s])) + 1 )
+          ( sum(rate(nginx_ingress_controller_requests{namespace="lab-guestbook-staging",status="200",canary="lab-guestbook-staging-svc-canary-80"}[30s])) + 1 )
           /
-          ( sum(rate(nginx_ingress_controller_requests{namespace="lab-guestbook-dev",canary="lab-guestbook-dev-svc-canary-80"}[30s])) + 1 )
+          ( sum(rate(nginx_ingress_controller_requests{namespace="lab-guestbook-staging",canary="lab-guestbook-staging-svc-canary-80"}[30s])) + 1 )
 ---
 # Source: apps-template/templates/loadgen.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -90,7 +90,7 @@ spec:
               containers:
               - name: loadgen
                 image: jordi/ab
-                command: [ab,"-n20","https://dev.guestbook.akpdemoapps.link/"]
+                command: [ab,"-n20","https://staging.guestbook.akpdemoapps.link/"]
               restartPolicy: Never
           backoffLimit: 1
 ---
@@ -118,7 +118,7 @@ spec:
             - name: SEMVER
               value: "v0.0.2"
             - name: STAGE
-              value: dev
+              value: staging
             - name: NAMESPACE
               valueFrom:
                 fieldRef:
