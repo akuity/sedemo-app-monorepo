@@ -110,13 +110,13 @@ spec:
         app: "lab-backend-app"
     spec:
       containers:
-        - image: "ghcr.io/akuity/sedemo-app-monorepo-backend:v0.0.2"
+        - image: "ghcr.io/akuity/sedemo-app-monorepo-backend:v1.0.1"
           name: "lab-backend-app"
           ports:
             - containerPort: 80
           env:
             - name: SEMVER
-              value: "v0.0.2"
+              value: "v1.0.1"
             - name: STAGE
               value: dev
             - name: NAMESPACE
