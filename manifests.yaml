@@ -110,7 +110,7 @@ spec:
         app: "lab-backend-app"
     spec:
       containers:
-        - image: "ghcr.io/akuity/guestbook:v0.0.2"
+        - image: "ghcr.io/akuity/sedemo-app-monorepo-backend:v0.0.2"
           name: "lab-backend-app"
           ports:
             - containerPort: 80
