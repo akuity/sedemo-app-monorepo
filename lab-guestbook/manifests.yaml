@@ -110,13 +110,13 @@ spec:
         app: "lab-guestbook-app"
     spec:
       containers:
-        - image: "ghcr.io/akuity/guestbook:v0.0.2"
+        - image: "ghcr.io/akuity/sedemo-app-monorepo-guestbook:v1.0.2"
           name: "lab-guestbook-app"
           ports:
             - containerPort: 80
           env:
             - name: SEMVER
-              value: "v0.0.2"
+              value: "v1.0.2"
             - name: STAGE
               value: staging
             - name: NAMESPACE
